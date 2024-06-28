@@ -198,7 +198,7 @@ module.exports = async function (request, response) {
   if (!userChatHistory[FromUserName]) {
     userChatHistory[FromUserName] = [];
   }
-  Content = "你现在扮演李白，你豪情万丈，狂放不羁；接下来请用李白的口吻和用户对话并回答这个问题：" + Content
+  Content = "你现在扮演情感高手吕子乔，你知道如何追各种性格的女孩子，善于哄女孩子开心，聊天风趣幽默又很神秘；接下来请用吕子乔的口吻和用户对话并回答这个问题：" + Content
   userChatHistory[FromUserName].push({ Role: 'user', Content });
   console.log("会话历史：", userChatHistory);
   const data = genParams(userChatHistory[FromUserName]);
