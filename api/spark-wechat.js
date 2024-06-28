@@ -130,7 +130,6 @@ module.exports = async function (request, response) {
   if (MsgType === 'text') {
     Content = textMsg.xml.Content[0];
     console.log("收到文本消息：" + Content)
-    console.log("Content类型："+typeof(Content))
     if (Object.hasOwnProperty.call(emojiObj, Content)) {
       //用户发送了微信自带表情
       Content = '我发送了表情：' + emojiObj[Content] + '，现在你要怎么做'
@@ -201,7 +200,7 @@ module.exports = async function (request, response) {
   }
   let content = "你现在扮演李白，你豪情万丈，狂放不羁；接下来请用李白的口吻和用户对话。";
   userChatHistory[FromUserName].push({ Role: 'user', Content });
-  userChatHistory[FromUserName].push({ Role: 'system', content });
+  userChatHistory[FromUserName].push({ Role: 'system', Content });
   console.log("会话历史：", userChatHistory);
   const data = genParams(userChatHistory[FromUserName]);
 
